@@ -23,7 +23,9 @@ let rec allNumber (n: int) =
 
 
 /// **Description**
+///
 /// Exercise 2: Implement a function that returns a string containing all numbers from n to 0. Separate the numbers with a white space.
+///
 /// **Parameters**
 ///   * `n` - parameter of type `int`
 ///
@@ -46,7 +48,9 @@ let rec allNumberRev (n: int) =
 //       string n + " " + allNumberRev(n - 1)
 
 /// **Description**
+///
 /// Exercise 6: Implement a function that returns a string containing length asterisks.
+///
 /// **Parameters**
 ///   * `n` - parameter of type `int`
 ///
@@ -61,3 +65,22 @@ let rec drawLine =
       ""
     else
       "*" + drawLine(n - 1)
+
+
+/// **Description**
+///
+/// Exercise 7: Implement a function that returns a string containing length repetitions of symbol.
+///
+/// **Parameters**
+///   * `s` - parameter of type `string`
+///   * `n` - parameter of type `int`
+///
+/// **Output Type**
+///   * `string`
+///
+/// **Exceptions**
+///
+let rec drawSymbols =
+  fun (s: string) -> fun (n: int) ->
+    if (n <= 0) then ""
+    else s + drawSymbols (s) (n - 1)
