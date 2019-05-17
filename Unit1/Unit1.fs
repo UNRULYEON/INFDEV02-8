@@ -69,6 +69,24 @@ let rec allNumberRange =
 
 /// **Description**
 ///
+/// Exercise 4: Implement a function that returns a string containing all numbers between lower and upper in reverse order. Sepa- rate the numbers with a white space.
+///
+/// **Parameters**
+///   * `l` - parameter of type `int`
+///   * `h` - parameter of type `int`
+///
+/// **Output Type**
+///   * `string`
+///
+/// **Exceptions**
+///
+let rec allNumberRangeRev =
+  fun l -> fun h ->
+   if (h <= l) then string h
+   else string h + " " + allNumberRangeRev(l)(h - 1)
+
+/// **Description**
+///
 /// Exercise 6: Implement a function that returns a string containing length asterisks.
 ///
 /// **Parameters**
