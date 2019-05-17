@@ -141,7 +141,6 @@ let rec drawSymbols =
     if (n <= 0) then ""
     else s + drawSymbols (s) (n - 1)
 
-
 /// **Description**
 ///
 /// Exercise 8: Implement a function that returns a string containing the binary representation of the input number (it must be positive).
@@ -158,3 +157,22 @@ let rec toBinary =
   fun (n) ->
     if (n <= 0) then ""
     else string (toBinary(n / 2) + string (n % 2))
+
+
+/// **Description**
+///
+/// Implement a function that returns a string containing the representation of the input number in an arbitrary base (the number must be positive). The algorithm is the same as above except you must take the remainder of n divided by base.
+///
+/// **Parameters**
+///   * `n` - parameter of type `int`
+///   * `b` - parameter of type `int`
+///
+/// **Output Type**
+///   * `string`
+///
+/// **Exceptions**
+///
+let rec toBase =
+  fun(n: int) -> fun (b: int) ->
+    if (n <= 0) then ""
+    else string (toBase(n / b)(b) + string (n % 2))
