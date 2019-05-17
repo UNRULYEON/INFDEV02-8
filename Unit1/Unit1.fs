@@ -47,6 +47,26 @@ let rec allNumberRev (n: int) =
 //     else
 //       string n + " " + allNumberRev(n - 1)
 
+
+/// **Description**
+///
+/// Exercise 3: Implement a function that returns a string containing all numbers between lower and upper. Separate the numbers with a white space.
+///
+/// **Parameters**
+///   * `l` - parameter of type `int`
+///   * `h` - parameter of type `int`
+///
+/// **Output Type**
+///   * `string`
+///
+/// **Exceptions**
+///
+let rec allNumberRange =
+  fun l -> fun h ->
+    if (l >= h) then string l
+    else string l + " " + allNumberRange(l + 1)(h)
+
+
 /// **Description**
 ///
 /// Exercise 6: Implement a function that returns a string containing length asterisks.
@@ -65,7 +85,6 @@ let rec drawLine =
       ""
     else
       "*" + drawLine(n - 1)
-
 
 /// **Description**
 ///
