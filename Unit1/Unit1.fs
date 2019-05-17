@@ -44,3 +44,20 @@ let rec allNumberRev (n: int) =
 //       string n
 //     else
 //       string n + " " + allNumberRev(n - 1)
+
+/// **Description**
+/// Exercise 6: Implement a function that returns a string containing length asterisks.
+/// **Parameters**
+///   * `n` - parameter of type `int`
+///
+/// **Output Type**
+///   * `string`
+///
+/// **Exceptions**
+///
+let rec drawLine =
+  fun (n: int) ->
+    if (n <= 0) then
+      ""
+    else
+      "*" + drawLine(n - 1)
