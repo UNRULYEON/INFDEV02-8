@@ -140,3 +140,21 @@ let rec drawSymbols =
   fun (s: string) -> fun (n: int) ->
     if (n <= 0) then ""
     else s + drawSymbols (s) (n - 1)
+
+
+/// **Description**
+///
+/// Exercise 8: Implement a function that returns a string containing the binary representation of the input number (it must be positive).
+///
+/// **Parameters**
+///   * `n` - parameter of type `int`
+///
+/// **Output Type**
+///   * `string`
+///
+/// **Exceptions**
+///
+let rec toBinary =
+  fun (n) ->
+    if (n <= 0) then ""
+    else string (toBinary(n / 2) + string (n % 2))
