@@ -85,6 +85,25 @@ let rec allNumberRangeRev =
    if (h <= l) then string h
    else string h + " " + allNumberRangeRev(l)(h - 1)
 
+
+/// **Description**
+///
+/// Exercise 5: Implement a function that returns a string containing all even numbers between lower and upper. Separate the numbers with a white space.
+///
+/// **Parameters**
+///   * `l` - parameter of type `int`
+///   * `h` - parameter of type `int`
+///
+/// **Output Type**
+///   * `string`
+///
+/// **Exceptions**
+///
+let rec allEvenRange =
+  fun (l: int) -> fun (h: int) ->
+    if (l >= h) then ""
+    else (if (l % 2 = 0) then string l else "") + " " + allEvenRange(l + 1)(h)
+
 /// **Description**
 ///
 /// Exercise 6: Implement a function that returns a string containing length asterisks.
