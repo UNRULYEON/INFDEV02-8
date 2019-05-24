@@ -83,6 +83,23 @@ let rec nth (n: int) (l: List<'a>) : Option<'a> =
   else
     nth (n - 1) l.Tail
 
+
+/// **Description**
+///
+/// Exercise 5: Implement a function that checks if a list is palindrome. A list is palindrome if it is equal to its inverse.
+///
+/// **Parameters**
+///   * `l` - parameter of type `List<'a>`
+///
+/// **Output Type**
+///   * `bool`
+///
+/// **Exceptions**
+///
+let rec palindrome (l: List<'a>) : bool =
+  l = (rev l)
+
 let testlist = [1; 2; 3]
+let testlist2 = [1; 2; 3; 2; 1]
 let testl1 = [1; 2; 3; 4; 5]
 let testl2 = [6; 7; 8; 9; 10]
