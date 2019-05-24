@@ -161,7 +161,7 @@ let rec toBinary =
 
 /// **Description**
 ///
-/// Implement a function that returns a string containing the representation of the input number in an arbitrary base (the number must be positive). The algorithm is the same as above except you must take the remainder of n divided by base.
+/// Exercise 9: Implement a function that returns a string containing the representation of the input number in an arbitrary base (the number must be positive). The algorithm is the same as above except you must take the remainder of n divided by base.
 ///
 /// **Parameters**
 ///   * `n` - parameter of type `int`
