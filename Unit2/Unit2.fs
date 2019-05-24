@@ -61,6 +61,28 @@ let rec rev (l: List<'a>) : List<'a> =
 let append (l1: List<'a>) (l2: List<'a>) : List<'a> =
   l1 @ l2 // With @ you can concatenate two lists -> https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/lists#operators-for-working-with-lists
 
+
+/// **Description**
+///
+/// Exercise 4: Implement a function that returns the element in position n in l.
+///
+/// **Parameters**
+///   * `n` - parameter of type `int`
+///   * `l` - parameter of type `List<'a>`
+///
+/// **Output Type**
+///   * `Option<'a>`
+///
+/// **Exceptions**
+///
+let rec nth (n: int) (l: List<'a>) : Option<'a> =
+  if (l.IsEmpty) then
+    None  // https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/options#using-options
+  elif (n = 0) then
+    Some l.Head
+  else
+    nth (n - 1) l.Tail
+
 let testlist = [1; 2; 3]
 let testl1 = [1; 2; 3; 4; 5]
 let testl2 = [6; 7; 8; 9; 10]
