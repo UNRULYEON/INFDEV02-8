@@ -99,7 +99,33 @@ let rec nth (n: int) (l: List<'a>) : Option<'a> =
 let rec palindrome (l: List<'a>) : bool =
   l = (rev l)
 
+
+/// **Description**
+///
+/// Exercise 6: Implement a function that removes consecutive occurrences of the same element in the list. For example compress [a;a;a;a;b;b;c;c;b] = [a;b;c;b].
+///
+/// **Parameters**
+///   * `l` - parameter of type `List<'a>`
+///
+/// **Output Type**
+///   * `List<'a>`
+///
+/// **Exceptions**
+///
+let rec compress (l: List<'a>) : List<'a> =
+  if l.IsEmpty then []
+  elif l.Tail.IsEmpty then [l.Head]
+  else
+    let x = l.Head
+    let y = l.Tail.Head
+    let xs = l.Tail.Tail
+    if x = y then
+      compress (y :: xs)
+    else
+      x :: (compress (y :: xs))
+
 let testlist = [1; 2; 3]
 let testlist2 = [1; 2; 3; 2; 1]
+let testlist3 = [1; 2; 2; 3; 3; 3; 4; 4; 4; 4;]
 let testl1 = [1; 2; 3; 4; 5]
 let testl2 = [6; 7; 8; 9; 10]
