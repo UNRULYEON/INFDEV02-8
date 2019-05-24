@@ -124,6 +124,68 @@ let rec compress (l: List<'a>) : List<'a> =
     else
       x :: (compress (y :: xs))
 
+
+/// **Description**
+///
+/// shift("c")(5) = h
+/// shift("y")(5) = d
+/// The ASCII code for a specific character in a string can be obtained by using the method charCodeAt
+/// that takes as input the position of the character of the string you want to get the ASCII code of.
+/// For instance:
+/// "Caesar".charCodeAt(2) = 101
+///
+/// **Parameters**
+///   * `c` - parameter of type `char`
+///   * `n` - parameter of type `int`
+///
+/// **Output Type**
+///   * `char`
+///
+/// **Exceptions**
+///
+let shift (c: char) (n: int) =
+  let lowerBound = int 'a'
+  let upperBound = int 'z'
+  let offset = (int 'z') - (int 'a')
+  let o = n % offset
+  let letterCode = (int c) + o
+  if letterCode < lowerBound then
+    char (upperBound - (lowerBound - letterCode))
+  elif letterCode > upperBound then
+    char ((lowerBound + (letterCode - upperBound)) - 1)
+  else
+    char letterCode
+
+
+/// **Description**
+///
+/// Exercise 7: The Caesar’s cypher take a text, represented as a list of characters (note that Typescript does
+/// not support the type char so you can use a list of string with only one character), and shifts all
+/// the letters (so only if the character is an alphabetical character) in it up by the number of position
+/// specified by shift. If the letter goes past z it restarts from a. You can assume that all the text is
+/// in lower-case letter. See the shift function
+///
+/// **Parameters**
+///   * `l` - parameter of type `List<char>`
+///   * `offset` - parameter of type `int`
+///
+/// **Output Type**
+///   * `List<char>`
+///
+/// **Exceptions**
+///
+let rec caesarCypher (l: List<char>) (offset: int) : List<char> =
+  if l.IsEmpty then
+    []
+  else
+    let c = l.Head
+    let charCode = (int c)
+    if charCode >= (int 'a') && charCode <= (int 'z') then
+      let encodedChar = shift c offset
+      encodedChar :: (caesarCypher l.Tail offset)
+    else
+      c :: (caesarCypher l.Tail offset)
+
 let testlist = [1; 2; 3]
 let testlist2 = [1; 2; 3; 2; 1]
 let testlist3 = [1; 2; 2; 3; 3; 3; 4; 4; 4; 4;]
